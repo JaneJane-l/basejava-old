@@ -11,7 +11,7 @@ import java.util.Arrays;
  * Array based storage for Resumes
  */
 public abstract class AbstractArrayStorage implements Storage {
-    protected static final int STORAGE_LIMIT = 10000;
+    protected static final int STORAGE_LIMIT = 10_000;
 
     protected Resume[] storage = new Resume[STORAGE_LIMIT];
     protected int size = 0;
@@ -58,7 +58,9 @@ public abstract class AbstractArrayStorage implements Storage {
             storage[size] = r;
             size++;
         }
-    }    public void delete(String uuid) {
+    }
+
+    public void delete(String uuid) {
         int index = getIndex(uuid);
         if (index < 0) {
             throw new NotExitStorageException( uuid );
